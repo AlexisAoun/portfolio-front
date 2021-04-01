@@ -4,6 +4,7 @@
 
 body{
     background-color: #737373;
+    overflow-x: hidden;
 }
 
 #firstSection{
@@ -14,7 +15,7 @@ body{
 
 #secondSection{
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .upperHalf{
@@ -27,10 +28,30 @@ body{
     background-color: #a6a6a6;
 }
 
+.bottomHalf{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.socialLogo{
+    position: absolute;
+    left : 13%;
+    top : 60%;
+    font-size: 50px;
+    transform: rotate(-5deg);
+}
+
+.socialLogo a i {
+    color: black;
+}
+
+
+
 .profilPic{
     position: absolute;
     left: 70%;
-    top: 100px;
+    top: 25%;
     transform: rotate(-5deg);
 }
 
@@ -41,6 +62,20 @@ body{
 .myDescription p{
     font-size: 25px;
     text-align: justify;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 11%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.menu a h2{
+    text-decoration: none;
+    color: black;
 }
 
 .scrollDown {
@@ -107,6 +142,11 @@ body{
     color: #d8dee9;
 }
 .project p{
-    text-align: justify;
+    text-align: center; 
     color: #d8dee9;
+}
+
+#contact{
+    margin-bottom: 0; 
+    background-color: #5a5a5a;
 }
