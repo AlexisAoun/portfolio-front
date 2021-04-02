@@ -147,6 +147,20 @@ body{
 
 .projectSnippet{
     border-radius: 10px;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+}
+
+.projectSnippetLgds{
+    border-radius: 10px;
+    background-image: url(img/lgdsSC.PNG);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 40%; 
+
 }
 .project h2{
     margin-top: 5%;
@@ -155,6 +169,8 @@ body{
 }
 .project p{
     text-align: center; 
+    font-size: 20px;
+    width: 80%;
     color: #d8dee9;
 }
 

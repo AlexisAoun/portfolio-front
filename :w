@@ -51,7 +51,7 @@
         <div class="row">
           <div class="col-sm">
             <div class="project my-5">
-                <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" >
+                <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>Les Grains de Sels || Django, Odoo</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
                 praesentium optio. Consequuntur est dolores blanditiis illum optio Sint animi illo omnis repudian</p>
@@ -59,7 +59,7 @@
           </div>
           <div class="col-sm">
             <div class="project my-5">
-                <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" >
+                <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>Site Internet Static || HTML/CSS</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
                 praesentium optio. Consequuntur est dolores blanditiis illum optio Sint animi illo omnis repudian</p>
@@ -68,15 +68,15 @@
         </div>
         <div class="row">
           <div class="col-sm">
-            <div class="project my-5">
-                <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" >
+            <div class="project m-0 me-sm-5 my-5">
+                <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>Grapheur Mathématique ||  C/C++</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
                 praesentium optio. Consequuntur est dolores blanditiis illum optio Sint animi illo omnis repudian</p>
             </div>
           </div>
           <div class="col-sm ">
-            <div class="project my-5">
+            <div class="project m-0 ms-sm-5 my-5">
                 <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>Business Intelligence || QlikSense</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
@@ -86,7 +86,7 @@
         </div>
         <div class="row">
           <div class="col-sm">
-            <div class="project my-5">
+            <div class="project m-0 me-sm-5 my-5">
                 <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>Mon Porfolio || HTML/CSS, Bootstrap</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
@@ -94,7 +94,7 @@
             </div>
           </div>
           <div class="col-sm">
-            <div class="project my-5">
+            <div class="project m-0 ms-sm-5 my-5">
                 <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>Generateur d'image aléatoire || Java</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
@@ -104,7 +104,7 @@
         </div>
         <div class="row">
           <div class="col-sm">
-            <div class="project my-5">
+            <div class="project m-0 me-sm-5 my-5">
                 <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>IA pour le jeu Can't Stop || Java</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
@@ -112,7 +112,7 @@
             </div>
           </div>
           <div class="col-sm">
-            <div class="project my-5">
+            <div class="project m-0 ms-sm-5 my-5">
                 <img class="projectSnippet" src="img/lgdsSC.PNG" alt="lgds" width="500" height="293.2">
                 <h2>IA pour le jeu Clan || C/C++</h2>
                 <p>Adipisicing voluptatem sit praesentium consectetur dignissimos commodi porro numquam corrupti Ducimus porro odit illo 
