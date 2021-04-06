@@ -1,2 +1,2 @@
 # MyPortfolio
-A quick look on all my projects 
+A quick look at all my projects 
