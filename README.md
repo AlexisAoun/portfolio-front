@@ -1,2 +1,1 @@
-# MyPortfolio
-A quick look at all my projects 
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).
