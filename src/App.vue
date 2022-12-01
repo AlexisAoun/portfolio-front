@@ -1,14 +1,34 @@
 <template>
-  <div>Teest</div>
-  <articleTag borderColor="#ffc0cb" color="#ff0000" title="developpement web" :id="1"/>
+  <TagSelector v-if="tags && tags.length !== 0" @update="updateSelectedTags" :tags="tags"/>
 </template>
 <script>
-import ArticleTag from '@/components/ArticleTag.vue'
+import TagSelector from '@/components/TagSelector.vue'
 
 export default {
   components: {
-    ArticleTag   
-  }
+    TagSelector
+  },
+  data() {
+    return {
+      tags: []
+    }
+  },
+  methods: {
+    updateSelectedTags(selectedTags) {
+      console.log(selectedTags)
+    },
+    async fetchData() {
+      const url = 'http://localhost:8000'
+      const res = await fetch(url + '/tag/all').then((res) => res?.ok ? res : null)
+      const data = await res?.json()
+      if(data) {
+        this.tags = data
+      }
+    }
+  },
+  beforeMount() {
+    this.fetchData()
+  },
 }
 </script>
 <style scoped>

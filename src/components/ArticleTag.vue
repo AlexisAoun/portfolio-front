@@ -1,5 +1,12 @@
 <template>
-  <div class="tag" :style="'background-color:' + color + ';'+'border-color:' + borderColor + ';'">{{ title }}</div>
+  <div
+    class="tag"
+    :style="
+      'background-color:' + computeColor + ';' + 'border-color:' + computeBorderColor + ';'
+    "
+  >
+    {{ title }}
+  </div>
 </template>
 <script type="module">
 export default {
@@ -7,7 +14,7 @@ export default {
   props: {
     id: {
       type: Number,
-      required: true
+      required: true,
     },
     title: {
       type: String,
@@ -21,6 +28,18 @@ export default {
       type: String,
       default: '#ff0000',
     },
+    selected: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    computeColor() {
+      return this.selected ? "#d3d3d3" : this.color
+    },
+    computeBorderColor() {
+      return this.selected ? "#d3d3d3" : this.borderColor
+    }
   },
 }
 </script>
@@ -30,5 +49,6 @@ export default {
   border: solid 3px;
   border-radius: 1rem;
   padding: 0.3rem;
+  font-size: 0.8rem;
 }
 </style>
