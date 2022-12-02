@@ -23,10 +23,7 @@
       borderColor="#BEBEBE"
       @click="resetTags"
     />
-    <div
-      @click="tagSelectorIsVisible = !tagSelectorIsVisible"
-      class="tagSelectorHeader"
-    >
+    <div @click="switchTagSelectorVisibility" class="tagSelectorHeader">
       <h3 v-if="tagSelectorIsVisible">Cacher les tags</h3>
       <h3 v-else>Montrer les tags</h3>
     </div>
@@ -35,6 +32,7 @@
       ref="tagSelectorRef"
       @update="updateSelectedTags"
       :tags="tags"
+      :initialSelectedTagsId="selectedTagsId(selectedTags)"
     />
   </div>
 
@@ -71,9 +69,13 @@ export default {
         if (this.selectedTagsLength !== 0) {
           if (article.tags) {
             article.tags.forEach((tag) => {
-              this.selectedTags.forEach(selectedTag => {
-                flag = selectedTag._id === tag._id
-              })
+              if (!flag) {
+                this.selectedTags.forEach((selectedTag) => {
+                  if(!flag) {
+                    flag = selectedTag._id === tag._id
+                  }
+                })
+              }
             })
           }
         } else {
@@ -84,9 +86,23 @@ export default {
     },
   },
   methods: {
+    selectedTagsId(selectedTags) {
+      let output = []
+      if (selectedTags.length !== 0) {
+        selectedTags.forEach((tag) => {
+          output.push(tag._id)
+        })
+      }
+      return output
+    },
+    switchTagSelectorVisibility() {
+      this.tagSelectorIsVisible = !this.tagSelectorIsVisible
+    },
     resetTags() {
       this.selectedTags = []
-      this.$refs.tagSelectorRef.resetTags()
+      if(this.tagSelectorIsVisible) {
+        this.$refs.tagSelectorRef.resetTags()
+      }
     },
     updateSelectedTags(updatedTagsId) {
       this.selectedTags = []
@@ -94,7 +110,6 @@ export default {
         const tag = this.getTagById(tagId)
         this.selectedTags.push(tag)
       })
-      console.log(this.filteredArticles)
     },
     getTagById(id) {
       let output = null

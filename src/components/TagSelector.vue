@@ -46,10 +46,13 @@ export default {
     tags: {
       required: true,
     },
+    initialSelectedTagsId: {
+      default: []
+    }
   },
   data() {
     return {
-      selectedTags: [],
+      selectedTagsId: [],
       techTags: [],
       experienceTags: [],
     }
@@ -59,25 +62,25 @@ export default {
       if (this.isSelected(id)) {
         this.unselectTag(id)
       } else {
-        this.selectedTags.push(id)
+        this.selectedTagsId.push(id)
       }
-      this.$emit('update', this.selectedTags)
+      this.$emit('update', this.selectedTagsId)
     },
     isSelected(id) {
       let output = false
-      this.selectedTags.forEach((tagId) => {
+      this.selectedTagsId.forEach((tagId) => {
         output = !output ? tagId === id : true
       })
       return output
     },
     unselectTag(id) {
-      const index = this.selectedTags.indexOf(id)
+      const index = this.selectedTagsId.indexOf(id)
       if (index > -1) {
-        this.selectedTags.splice(index, 1)
+        this.selectedTagsId.splice(index, 1)
       }
     },
     resetTags() {
-      this.selectedTags = []
+      this.selectedTagsId = []
     }
   },
   beforeMount() {
@@ -88,6 +91,10 @@ export default {
         this.experienceTags.push(tag)
       }
     })
+    this.selectedTagsId = this.initialSelectedTagsId
+  },
+  mounted() {
+    this.selectedTagsId = this.initialSelectedTagsId
   },
 }
 </script>
