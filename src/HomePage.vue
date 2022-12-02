@@ -18,7 +18,7 @@
       v-if="selectedTagsLength !== 0"
       class="resetTag"
       :id="-1"
-      title="Retirés les tags"
+      title="Retiré les tags"
       color="#BEBEBE"
       borderColor="#BEBEBE"
       @click="resetTags"
@@ -39,7 +39,7 @@
   </div>
 
   <!-- Article list section -->
-  <ArticleList :articles="articles" />
+  <ArticleList :articles="filteredArticles" />
 </template>
 <script>
 import TagSelector from '@/components/TagSelector.vue'
@@ -59,12 +59,28 @@ export default {
       selectedTags: [],
       articles: [],
       tagSelectorIsVisible: false,
-      url: 'http://localhost:8000',
     }
   },
   computed: {
     selectedTagsLength() {
       return this.selectedTags.length
+    },
+    filteredArticles() {
+      return this.articles.filter((article) => {
+        let flag = false
+        if (this.selectedTagsLength !== 0) {
+          if (article.tags) {
+            article.tags.forEach((tag) => {
+              this.selectedTags.forEach(selectedTag => {
+                flag = selectedTag._id === tag._id
+              })
+            })
+          }
+        } else {
+          flag = true
+        }
+        return flag
+      })
     },
   },
   methods: {
@@ -78,6 +94,7 @@ export default {
         const tag = this.getTagById(tagId)
         this.selectedTags.push(tag)
       })
+      console.log(this.filteredArticles)
     },
     getTagById(id) {
       let output = null
@@ -89,7 +106,7 @@ export default {
       return output
     },
     async fetchTags() {
-      const res = await fetch(this.url + '/tag/all').then((res) =>
+      const res = await fetch(this.apiUrl + '/tag/all').then((res) =>
         res?.ok ? res : null
       )
       const data = await res?.json()
@@ -98,7 +115,7 @@ export default {
       }
     },
     async fetchArticles() {
-      const res = await fetch(this.url + '/article/all').then((res) =>
+      const res = await fetch(this.apiUrl + '/article/all').then((res) =>
         res?.ok ? res : null
       )
       const data = await res?.json()
