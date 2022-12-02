@@ -35,10 +35,10 @@ export default {
   },
   computed: {
     computeColor() {
-      return this.selected ? "#d3d3d3" : this.color
+      return this.selected ? "#BEBEBE" : this.color
     },
     computeBorderColor() {
-      return this.selected ? "#d3d3d3" : this.borderColor
+      return this.selected ? "#BEBEBE" : this.borderColor
     }
   },
 }

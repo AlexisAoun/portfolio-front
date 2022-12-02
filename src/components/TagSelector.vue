@@ -1,7 +1,7 @@
 <template>
   <div class="selector">
     <div v-if="techTags" class="section">
-      <h3>Technical tags</h3>
+      <h3>Tags technologies</h3>
       <div class="tags">
         <ArticleTag
           v-for="tag in techTags"
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div v-if="experienceTags" class="section">
-      <h3>Experiences tags</h3>
+      <h3>Tags expériences</h3>
       <div class="tags">
         <ArticleTag
           v-for="tag in experienceTags"
@@ -76,6 +76,9 @@ export default {
         this.selectedTags.splice(index, 1)
       }
     },
+    resetTags() {
+      this.selectedTags = []
+    }
   },
   beforeMount() {
     this.tags.forEach((tag) => {
