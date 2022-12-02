@@ -141,8 +141,8 @@ export default {
 
 .footer {
   display: flex;
-  width: 60%;
-  justify-content: center;
+  width: 80%;
+  justify-content: space-evenly;
 }
 
 .tagsContainer {
