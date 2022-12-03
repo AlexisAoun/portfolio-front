@@ -64,25 +64,22 @@ export default {
       return this.selectedTags.length
     },
     filteredArticles() {
-      return this.articles.filter((article) => {
-        let flag = false
+      const tmp = this.articles.filter((article) => {
+        let numberOfCriteriaSatisfied = 0
         if (this.selectedTagsLength !== 0) {
           if (article.tags) {
             article.tags.forEach((tag) => {
-              if (!flag) {
                 this.selectedTags.forEach((selectedTag) => {
-                  if(!flag) {
-                    flag = selectedTag._id === tag._id
+                  if(selectedTag._id === tag._id) {
+                    numberOfCriteriaSatisfied++
                   }
                 })
-              }
             })
           }
-        } else {
-          flag = true
         }
-        return flag
+        return numberOfCriteriaSatisfied === this.selectedTagsLength
       })
+      return tmp.sort((a,b) => a.value - b.value)
     },
   },
   methods: {

@@ -5,7 +5,7 @@
   </div>
   <div v-if="article" class="articleContainer">
     <h2 class="articleTitle">{{ article.title.fr }}</h2>
-    <div v-if="article.images_url" class="imagesContainer">
+    <div v-if="!isImageArrayEmpty" class="imagesContainer">
       <div
         v-for="(image_url, index) in article.images_url"
         v-bind:key="index"
@@ -65,6 +65,11 @@ export default {
       article: null,
     }
   },
+  computed: {
+    isImageArrayEmpty() {
+      return this.article.images_url.length === 0
+    }
+  },  
   methods: {
     returnToHomePage() {
       this.$router.push({
