@@ -10,12 +10,12 @@
         v-for="(image_url, index) in article.images_url"
         v-bind:key="index"
         class="imageContainer"
+        :style="'width: ' + getImageContainerWidth + '%;'"
       >
         <img :src="getImgSrc(image_url)" alt="project thumbnail" />
       </div>
     </div>
-    <div class="content">
-      {{ article.content.fr }}
+    <div v-html="article.content.fr" class="content">
     </div>
     <div class="footer">
       <div class="tagsContainer">
@@ -32,16 +32,15 @@
           />
         </div>
       </div>
-      <div v-if="article.sourcecode_link || article.demo_link" class="linksContainer">
+      <div
+        v-if="article.sourcecode_link || article.demo_link"
+        class="linksContainer"
+      >
         <div v-if="article.sourcecode_link" class="link">
-          <a target="_blank" :href="article.sourcecode_link">
-            Code source
-          </a>
+          <a target="_blank" :href="article.sourcecode_link"> Code source </a>
         </div>
         <div v-if="article.demo_link" class="link">
-          <a target="_blank" :href="article.demo_link">
-            Démo
-          </a>
+          <a target="_blank" :href="article.demo_link"> Démo </a>
         </div>
       </div>
     </div>
@@ -68,8 +67,14 @@ export default {
   computed: {
     isImageArrayEmpty() {
       return this.article.images_url.length === 0
-    }
-  },  
+    },
+    numberOfImages() {
+      return this.article.images_url.length
+    },
+    getImageContainerWidth() {
+      return this.numberOfImages === 1 ? 100 : 100 / this.numberOfImages - 10
+    },
+  },
   methods: {
     returnToHomePage() {
       this.$router.push({
@@ -130,7 +135,7 @@ export default {
 }
 
 .imageContainer {
-  width: 30%;
+  width: 40%;
   margin-top: 3rem;
 }
 
@@ -170,7 +175,7 @@ export default {
 
 .link {
   margin: 0 1rem 0 1rem;
-  border: solid 0.08rem #BEBEBE;
+  border: solid 0.08rem #bebebe;
   padding: 0.3rem;
   border-radius: 0.8rem;
 }
