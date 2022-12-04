@@ -162,6 +162,7 @@ export default {
   border: solid 0.1rem #bebebe;
   border-radius: 1rem;
   padding: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .tags {
@@ -178,6 +179,8 @@ export default {
   border: solid 0.08rem #bebebe;
   padding: 0.3rem;
   border-radius: 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: all ease 200ms;
 }
 
 .link a {
@@ -187,5 +190,6 @@ export default {
 
 .link:hover {
   border: solid 0.1rem;
+  transform: translateY(-2px);
 }
 </style>

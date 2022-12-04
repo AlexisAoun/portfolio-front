@@ -102,6 +102,7 @@ export default {
 .selector {
   display: flex;
   justify-content: space-evenly;
+  padding: 1rem;
 }
 
 .section {
@@ -116,5 +117,10 @@ export default {
 .tag {
   margin: 0.5rem 0.2rem 0.5rem 0.2rem;
   cursor: pointer;
+  transition: all ease 100ms;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
 }
 </style>

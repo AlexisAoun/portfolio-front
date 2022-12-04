@@ -35,10 +35,11 @@ export default {
 </script>
 <style>
 .container {
-  border: solid 1px;
-  border-color: #bebebe;
+  border: solid 0.5px;
+  border-color: lightgray;
   border-radius: 1rem;
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .tags {
   display: flex;

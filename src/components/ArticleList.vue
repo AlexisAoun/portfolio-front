@@ -37,5 +37,10 @@ export default {
 .article {
   margin: 2rem 2rem;
   cursor: pointer;
+  transition: all ease 200ms;
+}
+
+.article:hover {
+  transform: translateY(-4px);
 }
 </style>
