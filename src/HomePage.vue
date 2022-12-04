@@ -13,24 +13,28 @@
             <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon>
           </a>
         </div>
-        <img class="profilPic" :src="this.apiUrl+'/media/ALEXIS.png'" alt="Alexis Aoun" />
+        <img
+          class="profilPic"
+          :src="this.apiUrl + '/media/ALEXIS.png'"
+          alt="Alexis Aoun"
+        />
       </div>
       <div class="bottomHalf">
         <div class="myDescription">
           <h1>Mon portfolio</h1>
           <p>
-            Je suis étudiant en ingénierie spécialisé en Data Science et passioné depuis mon plus jeune âge
-            par l'informatique. Ma curiosité sans limite m'a permis d'acquérir
-            bon nombre de compétences en programmation bas niveau, haut
-            niveau, hardware, dév. web, administration de système linux,
-            data... Tant d'outils qui m'ont permis de
-            mettre en oeuvre plusieurs projets, personnels et professionels, que
-            je vous présente ici
+            Je suis étudiant en ingénierie spécialisé en Data Science et
+            passioné depuis mon plus jeune âge par l'informatique. Ma curiosité
+            sans limite m'a permis d'acquérir bon nombre de compétences en
+            programmation bas niveau, haut niveau, hardware, dév. web,
+            administration de système linux, data... Tant d'outils qui m'ont
+            permis de mettre en oeuvre plusieurs projets, personnels et
+            professionels, que je vous présente ici
           </p>
         </div>
 
         <div class="menu">
-          <div class="menuEntry" @click="scrollToArticles">
+          <div class="menuEntry projectBtn" @click="scrollToArticles">
             <h2>Mes Projets</h2>
           </div>
           <div class="menuEntry">
@@ -41,48 +45,53 @@
           </div>
         </div>
       </div>
-      <div class="scrollDown" @click="scrollToArticles"/>
+      <div class="scrollDown" @click="scrollToArticles" />
     </div>
-  </div>
-  <!-- filter section   -->
-  <div id="filter" class="filter">
-    <h3>Filtre - Tags séléctionnés</h3>
-    <div v-if="selectedTags && selectedTagsLength !== 0" class="selectedTags">
-      <ArticleTag
-        v-for="tag in selectedTags"
-        :key="tag._id"
-        class="tag"
-        :id="tag._id"
-        :title="tag.name"
-        :color="tag.color"
-        :borderColor="tag.color"
-      />
-    </div>
-    <p v-if="selectedTagsLength === 0">Aucun tag n'est séléctionné</p>
-    <ArticleTag
-      v-if="selectedTagsLength !== 0"
-      class="resetTag"
-      :id="-1"
-      title="Retiré les tags"
-      color="#BEBEBE"
-      borderColor="#BEBEBE"
-      @click="resetTags"
-    />
-    <div @click="switchTagSelectorVisibility" class="tagSelectorHeader">
-      <h3 v-if="tagSelectorIsVisible">Cacher les tags</h3>
-      <h3 v-else>Montrer les tags</h3>
-    </div>
-    <TagSelector
-      v-if="tags && tags.length !== 0 && tagSelectorIsVisible"
-      ref="tagSelectorRef"
-      @update="updateSelectedTags"
-      :tags="tags"
-      :initialSelectedTagsId="selectedTagsId(selectedTags)"
-    />
   </div>
 
-  <!-- Article list section -->
-  <ArticleList :articles="filteredArticles" ref="articleList"/>
+  <div class="project" id="project">
+    <!-- filter section   -->
+    <div id="filter" class="filter">
+      <h3>Filtre - Tags séléctionnés</h3>
+      <div v-if="selectedTags && selectedTagsLength !== 0" class="selectedTags">
+        <ArticleTag
+          v-for="tag in selectedTags"
+          :key="tag._id"
+          class="tag"
+          :id="tag._id"
+          :title="tag.name"
+          :color="tag.color"
+          :borderColor="tag.color"
+        />
+      </div>
+      <p v-if="selectedTagsLength === 0">Aucun tag n'est séléctionné</p>
+      <ArticleTag
+        v-if="selectedTagsLength !== 0"
+        class="resetTag"
+        :id="-1"
+        title="Retiré les tags"
+        color="#BEBEBE"
+        borderColor="#BEBEBE"
+        @click="resetTags"
+      />
+      <div @click="switchTagSelectorVisibility" class="tagSelectorBtnContainer">
+        <div class="tagSelectorBtn" v-if="tagSelectorIsVisible">
+          Cacher les tags
+        </div>
+        <div class="tagSelectorBtn" v-else>Montrer les tags</div>
+      </div>
+      <TagSelector
+        v-if="tags && tags.length !== 0 && tagSelectorIsVisible"
+        ref="tagSelectorRef"
+        @update="updateSelectedTags"
+        :tags="tags"
+        :initialSelectedTagsId="selectedTagsId(selectedTags)"
+      />
+    </div>
+
+    <!-- Article list section -->
+    <ArticleList :articles="filteredArticles" ref="articleList" />
+  </div>
 </template>
 <script>
 import TagSelector from '@/components/TagSelector.vue'
@@ -114,22 +123,22 @@ export default {
         if (this.selectedTagsLength !== 0) {
           if (article.tags) {
             article.tags.forEach((tag) => {
-                this.selectedTags.forEach((selectedTag) => {
-                  if(selectedTag._id === tag._id) {
-                    numberOfCriteriaSatisfied++
-                  }
-                })
+              this.selectedTags.forEach((selectedTag) => {
+                if (selectedTag._id === tag._id) {
+                  numberOfCriteriaSatisfied++
+                }
+              })
             })
           }
         }
         return numberOfCriteriaSatisfied === this.selectedTagsLength
       })
-      return tmp.sort((a,b) => a.value - b.value)
+      return tmp.sort((a, b) => a.value - b.value)
     },
   },
   methods: {
     scrollToArticles() {
-      document.getElementById('filter').scrollIntoView({ behavior: 'smooth'})
+      document.getElementById('project').scrollIntoView({ behavior: 'smooth' })
     },
     selectedTagsId(selectedTags) {
       let output = []
@@ -145,7 +154,7 @@ export default {
     },
     resetTags() {
       this.selectedTags = []
-      if(this.tagSelectorIsVisible) {
+      if (this.tagSelectorIsVisible) {
         this.$refs.tagSelectorRef.resetTags()
       }
     },
@@ -203,12 +212,19 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-.tagSelectorHeader {
+.tagSelectorBtnContainer {
   cursor: pointer;
+  border: solid 0.5px whitesmoke;
+  border-radius: 1rem;
+  background-color: whitesmoke;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: all ease 200ms;
 }
 
-.tagSelectorHeader h3 {
-  text-decoration: underline;
+.tagSelectorBtnContainer:hover {
+  transform: translateY(-4px);
 }
 
 .home {
@@ -314,7 +330,7 @@ export default {
 }
 .scrollDown::before,
 .scrollDown::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 20%;
   left: 50%;
@@ -329,6 +345,11 @@ export default {
 .scrollDown::before {
   top: 30%;
   animation-delay: 0.3s;
+}
+
+.project {
+  min-height: 100vh;
+  padding-top: 2rem;
 }
 
 @keyframes scroll-down {
@@ -368,23 +389,39 @@ export default {
     position: static;
     transform: rotate(0);
     justify-content: space-around;
+    margin-bottom: 1rem;
   }
   .socialLogo a {
     margin: 0;
   }
-  .menu {
-    display: none;
+  .bottomHalf {
+    flex-direction: column;
+    align-items: center;
   }
   .myDescription {
     width: 80%;
-    margin-left: 10%;
+    margin: 0;
     margin-top: 5%;
   }
   .myDescription h1 {
     text-align: center;
+    font-size: 1.5rem;
   }
   .myDescription p {
     text-align: center;
+    font-size: 1rem;
+  }
+  .menu {
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0;
+    width: 90%;
+  }
+  .projectBtn {
+    display: none;
+  }
+  .menuEntry h2 {
+    font-size: 1.2rem;
   }
 }
 </style>

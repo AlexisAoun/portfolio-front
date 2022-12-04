@@ -192,4 +192,29 @@ export default {
   border: solid 0.1rem;
   transform: translateY(-2px);
 }
+
+@media screen and (max-width: 1270px) { 
+  .articleContainer {
+    padding: 3rem;
+  }
+  .content {
+    font-size: 0.9rem;
+    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: justify;
+  } 
+  .footer {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .linksContainer {
+    margin-bottom: 1rem;
+  }
+
+  .link {
+    text-align: center;
+  }
+}
 </style>

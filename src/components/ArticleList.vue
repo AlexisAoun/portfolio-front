@@ -1,13 +1,18 @@
 <template>
-  <div>
-    <ArticleListItem
-      v-for="article in articles"
-      :key="article._id"
-      class="article"
-      :title="article.title.fr"
-      :tags="article.tags"
-      @click="goToArticlePage(article._id)"
-    />
+  <div class="articleList">
+    <div v-if="!isArticleArrayEmpty">
+      <ArticleListItem
+        v-for="article in articles"
+        :key="article._id"
+        class="article"
+        :title="article.title.fr"
+        :tags="article.tags"
+        @click="goToArticlePage(article._id)"
+      />
+    </div>
+    <div v-else class="noArticlesFoundMsg">
+      Aucun article ne correspond aux critères
+    </div>
   </div>
 </template>
 <script>
@@ -21,6 +26,11 @@ export default {
   props: {
     articles: {
       required: true,
+    },
+  },
+  computed: {
+    isArticleArrayEmpty() {
+      return this.articles.length === 0
     },
   },
   methods: {
@@ -42,5 +52,16 @@ export default {
 
 .article:hover {
   transform: translateY(-4px);
+}
+
+.articleList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noArticlesFoundMsg {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 </style>

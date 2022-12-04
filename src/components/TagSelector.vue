@@ -47,8 +47,8 @@ export default {
       required: true,
     },
     initialSelectedTagsId: {
-      default: []
-    }
+      default: [],
+    },
   },
   data() {
     return {
@@ -81,7 +81,7 @@ export default {
     },
     resetTags() {
       this.selectedTagsId = []
-    }
+    },
   },
   beforeMount() {
     this.tags.forEach((tag) => {
@@ -122,5 +122,20 @@ export default {
 
 .tag:hover {
   transform: translateY(-2px);
+}
+
+@media screen and (max-width: 1270px) {
+  .selector {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section {
+    width: 80%;
+  }
+
+  .section h3 {
+    text-align: center;
+  }
 }
 </style>
