@@ -115,4 +115,14 @@ export default {
   }
 
 }
+
+@media screen and (max-height: 700px) and (max-width: 300px) {
+  .contactContainer p {
+    font-size: 1rem;
+  }
+  
+  .returnBtn {
+    font-size: 0.8rem;
+  }
+}
 </style>

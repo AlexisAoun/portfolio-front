@@ -1,6 +1,6 @@
 <template>
   <div class="articleList">
-    <div v-if="!isArticleArrayEmpty">
+    <div v-if="!isArticleArrayEmpty" class="listContainer">
       <ArticleListItem
         v-for="article in articles"
         :key="article._id"
@@ -60,8 +60,18 @@ export default {
   align-items: center;
 }
 
+.listContainer {
+  width: 80%;
+}
+
 .noArticlesFoundMsg {
   margin-top: 5rem;
   margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 1270px) { 
+  .listContainer {
+    width: 90%;
+  }
 }
 </style>

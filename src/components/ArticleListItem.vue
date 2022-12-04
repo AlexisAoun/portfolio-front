@@ -45,4 +45,9 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 1270px) {
+  .container h2 {
+    font-size: 1.3rem;
+  }
+}
 </style>

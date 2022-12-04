@@ -437,4 +437,20 @@ export default {
     font-size: 0.9rem;
   }
 }
+
+@media screen and (max-height: 700px) and (max-width: 300px) {
+  .menuEntry h2 {
+    font-size: 1rem;
+  }
+  .myDescription p {
+    font-size: 0.8rem;
+  }
+  .filter h3 {
+    font-size: 1rem;
+  }
+  .filter p {
+    font-size: 0.8rem;
+  }
+}
+
 </style>
