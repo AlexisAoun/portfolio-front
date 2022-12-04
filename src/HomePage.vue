@@ -37,7 +37,7 @@
           <div class="menuEntry projectBtn" @click="scrollToArticles">
             <h2>Mes Projets</h2>
           </div>
-          <div class="menuEntry">
+          <div class="menuEntry" @click="goToContactPage">
             <h2>Me Contacter</h2>
           </div>
           <div class="menuEntry">
@@ -137,6 +137,11 @@ export default {
     },
   },
   methods: {
+    goToContactPage() {
+      this.$router.push({
+        name: 'Contact'
+      })
+    },
     scrollToArticles() {
       document.getElementById('project').scrollIntoView({ behavior: 'smooth' })
     },
@@ -390,6 +395,8 @@ export default {
     transform: rotate(0);
     justify-content: space-around;
     margin-bottom: 1rem;
+    width: 80%;
+    margin-left: 10%;
   }
   .socialLogo a {
     margin: 0;
@@ -409,7 +416,7 @@ export default {
   }
   .myDescription p {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .menu {
     flex-direction: row;
@@ -422,6 +429,12 @@ export default {
   }
   .menuEntry h2 {
     font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .myDescription p {
+    font-size: 0.9rem;
   }
 }
 </style>
