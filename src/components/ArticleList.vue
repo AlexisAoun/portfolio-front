@@ -6,6 +6,7 @@
         :key="article._id"
         class="article"
         :title="article.title.fr"
+        :content="article.content.fr"
         :tags="article.tags"
         @click="goToArticlePage(article._id)"
       />

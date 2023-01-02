@@ -23,7 +23,7 @@
         <div class="myDescription">
           <h1>Mon portfolio</h1>
           <p>
-            Je suis étudiant en ingénierie spécialisé en Data Science et
+            Je suis étudiant en ingénierie spécialisé en Data et
             passioné depuis mon plus jeune âge par l'informatique. Ma curiosité
             sans limite m'a permis d'acquérir bon nombre de compétences en
             programmation bas niveau, haut niveau, hardware, dév. web,
@@ -40,9 +40,9 @@
           <div class="menuEntry" @click="goToContactPage">
             <h2>Me Contacter</h2>
           </div>
-          <div class="menuEntry">
+          <a class="menuEntry" target="_blank" :href="this.apiUrl+'/media/Alexis_Aoun-CV.pdf'">
             <h2>Mon CV</h2>
-          </div>
+          </a>
         </div>
       </div>
       <div class="scrollDown" @click="scrollToArticles" />

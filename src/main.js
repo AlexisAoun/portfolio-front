@@ -15,6 +15,8 @@ library.add(faGithub, faLinkedin)
 const app = createApp(App)
 
 app.use(router)
-app.config.globalProperties.apiUrl = "http://localhost:8000"
+// app.config.globalProperties.apiUrl = "http://localhost:8000"
+// for prod
+app.config.globalProperties.apiUrl = "http://194.195.246.236:8000"
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
